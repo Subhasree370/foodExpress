@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const { PORT } = process.env;
+global.__basedir = __dirname;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
