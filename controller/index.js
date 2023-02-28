@@ -11,7 +11,7 @@ class controller {
     try {
       const allFoods = await Food.find({ available: true });
       return res.status(200).json({
-        message: `Welcome to this foodOrdering site.`,
+        message: `Welcome to this foodExpress site.`,
         allFoodsAvailable: allFoods,
       });
     } catch (error) {

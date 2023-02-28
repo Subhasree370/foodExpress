@@ -59,7 +59,7 @@ Below are the methods, route, the user, and reference to the controller and auth
 
 ### Order Information
 
-There is postman file with this project [foodOrdering.postman_collection.json]() that would help during testing. Also, you can quickly create test users with the [createUser.js]() file by **uncommenting** the last line in app.js file to have `require("./createUser")`
+There is postman file with this project [foodExpress.postman_collection.json]() that would help during testing. Also, you can quickly create test users with the [createUser.js]() file by **uncommenting** the last line in app.js file to have `require("./createUser")`
 
 ```
 ...

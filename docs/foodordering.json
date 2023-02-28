@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "FoodOrdering API",
-    "description": "FoodOrdering API",
+    "title": "foodExpress API",
+    "description": "foodExpress API",
     "contact": {
       "email": "subhasreemaji190@gmail.com"
     },
@@ -17,7 +17,7 @@
       "url": "http://localhost:8080"
     },
     {
-      "url": "https://init-foodordering.herokuapp.com"
+      "url": "https://init-foodExpress.herokuapp.com"
     }
   ],
   "tags": [
@@ -53,9 +53,7 @@
   "paths": {
     "/": {
       "get": {
-        "tags": [
-          "Welcome"
-        ],
+        "tags": ["Welcome"],
         "summary": "Welcome details",
         "description": "returns the active products",
         "responses": {
@@ -77,9 +75,7 @@
     },
     "/signup": {
       "post": {
-        "tags": [
-          "Authentication"
-        ],
+        "tags": ["Authentication"],
         "summary": "signup with email",
         "description": "create user account with email",
         "parameters": [
@@ -118,9 +114,7 @@
     },
     "/login": {
       "post": {
-        "tags": [
-          "Authentication"
-        ],
+        "tags": ["Authentication"],
         "summary": "signup with email",
         "description": "create user account with email",
         "requestBody": {
@@ -164,9 +158,7 @@
     },
     "/updatepassword": {
       "put": {
-        "tags": [
-          "Authentication"
-        ],
+        "tags": ["Authentication"],
         "summary": "Change user account password",
         "parameters": [
           {
@@ -179,10 +171,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "password",
-                  "newPassword"
-                ],
+                "required": ["password", "newPassword"],
                 "properties": {
                   "password": {
                     "type": "string"
@@ -210,9 +199,7 @@
     },
     "/requestpasswordreset": {
       "post": {
-        "tags": [
-          "Authentication"
-        ],
+        "tags": ["Authentication"],
         "summary": "Request password reset email",
         "requestBody": {
           "content": {
@@ -245,9 +232,7 @@
     },
     "/resetpassword": {
       "post": {
-        "tags": [
-          "Authentication"
-        ],
+        "tags": ["Authentication"],
         "summary": "Reset account password",
         "parameters": [
           {
@@ -294,9 +279,7 @@
     },
     "/edit": {
       "put": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "update user data",
         "parameters": [
           {
@@ -337,9 +320,7 @@
     },
     "/{user_id}": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Get a users detail",
         "parameters": [
           {
@@ -394,9 +375,7 @@
         }
       },
       "put": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "update user data",
         "parameters": [
           {
@@ -440,9 +419,7 @@
     },
     "/food/all": {
       "get": {
-        "tags": [
-          "Food"
-        ],
+        "tags": ["Food"],
         "summary": "return all food available",
         "responses": {
           "200": {
@@ -469,9 +446,7 @@
     },
     "/food/{food_id}": {
       "get": {
-        "tags": [
-          "Food"
-        ],
+        "tags": ["Food"],
         "summary": "return one food details",
         "responses": {
           "200": {
@@ -498,9 +473,7 @@
     },
     "/user/cart": {
       "get": {
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "summary": "return users cart items",
         "parameters": [
           {
@@ -532,9 +505,7 @@
     },
     "/user/cart/{food_id}/{food_qty}": {
       "post": {
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "summary": "Add item to users cart",
         "parameters": [
           {
@@ -568,9 +539,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "summary": "Add item to users cart",
         "parameters": [
           {
@@ -600,9 +569,7 @@
     },
     "/user/cart/{food_id}/": {
       "delete": {
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "summary": "Add item to users cart",
         "parameters": [
           {
@@ -635,9 +602,7 @@
     },
     "/user/ordering": {
       "get": {
-        "tags": [
-          "Order"
-        ],
+        "tags": ["Order"],
         "summary": "get all ordering history",
         "parameters": [
           {
@@ -667,9 +632,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Order"
-        ],
+        "tags": ["Order"],
         "summary": "checkout food",
         "parameters": [
           {
@@ -701,9 +664,7 @@
     },
     "/admin": {
       "post": {
-        "tags": [
-          "Admin"
-        ],
+        "tags": ["Admin"],
         "summary": "add new food",
         "parameters": [
           {
@@ -743,9 +704,7 @@
     },
     "/admin/allfoods": {
       "get": {
-        "tags": [
-          "Admin"
-        ],
+        "tags": ["Admin"],
         "summary": "get all food",
         "parameters": [
           {
@@ -775,9 +734,7 @@
     },
     "/admin/makeavailable": {
       "post": {
-        "tags": [
-          "Admin"
-        ],
+        "tags": ["Admin"],
         "summary": "signup with email",
         "parameters": [
           {
@@ -815,9 +772,7 @@
     },
     "/admin/makeadmin": {
       "post": {
-        "tags": [
-          "Admin"
-        ],
+        "tags": ["Admin"],
         "summary": "Make user an admin",
         "parameters": [
           {
@@ -855,9 +810,7 @@
     },
     "/admin/{food_id}": {
       "delete": {
-        "tags": [
-          "Admin"
-        ],
+        "tags": ["Admin"],
         "summary": "Delete a food",
         "parameters": [
           {
@@ -992,11 +945,7 @@
         }
       },
       "User": {
-        "required": [
-          "email",
-          "name",
-          "password"
-        ],
+        "required": ["email", "name", "password"],
         "type": "object",
         "properties": {
           "email": {
