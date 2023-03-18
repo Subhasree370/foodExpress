@@ -3,6 +3,15 @@ const Restaurant = require("../models/restaurant-model");
 // const User = require("../models/user-model");
 
 class controller {
+  static async allRestaurant(req, res, next) {
+    try {
+      const allRestaurant = await Restaurant.find();
+      return res.status(200).json(allRestaurant);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async addRestaurant(req, res, next) {
     // return res.status(200).json({
     //   success: true,

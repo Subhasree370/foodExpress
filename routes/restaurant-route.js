@@ -10,6 +10,13 @@ router.post(
   controller.addRestaurant
 );
 
+router.get(
+  "/allrestaurant",
+  // auth.decodeToken,
+  // auth.isRestaurantOwner,
+  controller.allRestaurant
+);
+
 // router.get("/allfoods", auth.decodeToken, auth.isAdmin, controller.allFoods);
 
 // router.post(
