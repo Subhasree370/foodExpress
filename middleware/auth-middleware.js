@@ -28,9 +28,9 @@ class authorisation {
     try {
       const decoded = jwt.verify(token, TOKEN_KEY);
       const user = await User.findOne({ email: decoded.email });
-      if (!user) throw Error("User Doesnt't Exist Boss Mi");
+      if (!user) throw Error("User Doesn't Exist");
       if (user._id != decoded._id)
-        throw Error("Wrong token, boss get a valid token");
+        throw Error("Wrong token, get a valid token");
       req.user = user;
       next();
     } catch (error) {

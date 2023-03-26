@@ -5,7 +5,7 @@ const User = require("../models/user-model");
 
 class controller {
   static async newFood(req, res, next) {
-    let { name, description, price, category } = req.body;
+    let { name, description, price, category, restaurantID } = req.body;
     try {
       if (!name || !price || !description) {
         const err = new Error();
@@ -21,7 +21,7 @@ class controller {
         const err = new Error();
         err.name = "Not Acceptable";
         err.status = 406;
-        err.message = "This food name dey meun before sir/ma";
+        err.message = "This food name is already added";
         throw err;
       }
 
@@ -41,6 +41,8 @@ class controller {
         price,
         category,
         images: subpath,
+        userID: req.user,
+        restaurantID,
       });
       await food.save();
 

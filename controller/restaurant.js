@@ -18,40 +18,28 @@ class controller {
     //   message: `Name was added successfully`,
     // });
 
-    let { restaurantName, restaurantLogo } = req.body;
-    // try {
-    //   if (!name || !price || !description) {
-    //     const err = new Error();
-    //     err.name = "Bad Request";
-    //     err.status = 400;
-    //     err.message = "Please fill all required details";
-    //     throw err;
-    //   }
+    let {
+      restaurantName,
+      restaurantLogo,
+      restaurantImage,
+      restaurantLocation,
+      restaurantLatitude,
+      restaurantLongitude,
+      restaurantRating,
+    } = req.body;
+    // let { street, state, city, country, pincode } = restaurantLocation;
 
-    // const restaurantName = await Restaurant.findOne({ name: name });
-
-    //   if (foundName) {
-    //     const err = new Error();
-    //     err.name = "Not Acceptable";
-    //     err.status = 406;
-    //     err.message = "This food name dey meun before sir/ma";
-    //     throw err;
-    //   }
-
-    //   const file = req.files.image;
-    //   const subpath =
-    //     "/assets/img/" + Math.random().toString(36) + "_" + file.name;
-    //   const path = __basedir + subpath;
-    //   file.mv(path, (err) => {
-    //     if (err) {
-    //       console.log(err);
-    //     }
-    //     console.log("success");
-    //   });
     const restaurant = new Restaurant({
       restaurantName,
       restaurantLogo,
+      restaurantImage,
+      restaurantLocation,
+      restaurantLatitude,
+      restaurantLongitude,
+      restaurantRating,
+      userID: req.user,
     });
+
     await restaurant.save();
 
     return await res.status(201).json({
