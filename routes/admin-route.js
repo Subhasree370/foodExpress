@@ -5,7 +5,12 @@ const auth = require("../middleware/auth-middleware");
 
 router.post("/", auth.decodeToken, auth.isRestaurantOwner, controller.newFood);
 
-router.get("/allfoods", auth.decodeToken, auth.isAdmin, controller.allFoods);
+router.get(
+  "/:restaurentId",
+  auth.decodeToken,
+  auth.isRestaurantOwner,
+  controller.allFoodsByRestaurant
+);
 
 router.post(
   "/makeavailable",

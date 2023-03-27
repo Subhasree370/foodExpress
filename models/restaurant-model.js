@@ -73,15 +73,15 @@ const restaurantSchema = new Schema({
   //   required: true,
   // },
 
-  // foodID: {
-  //   items: [
-  //     {
-  //       type: Schema.Types.ObjectId,
-  //       ref: "Food",
-  //       required: true,
-  //     },
-  //   ],
-  // },
+  foodID: {
+    items: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Food",
+        required: true,
+      },
+    ],
+  },
 });
 
 module.exports = mongoose.model("Restaurant", restaurantSchema);

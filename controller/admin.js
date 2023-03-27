@@ -2,6 +2,7 @@ const mongodb = require("mongodb");
 const binary = mongodb.Binary;
 const Food = require("../models/food-model");
 const User = require("../models/user-model");
+const Restaurant = require("../models/restaurant-model");
 
 class controller {
   static async newFood(req, res, next) {
@@ -44,7 +45,10 @@ class controller {
         userID: req.user,
         restaurantID,
       });
-      await food.save();
+      const newFood = await food.save();
+      const newRestaurant = await Restaurant.findById(restaurantID);
+      newRestaurant.foodID.items.push(newFood._id);
+      await newRestaurant.save();
 
       return await res.status(201).json({
         success: true,
@@ -59,6 +63,23 @@ class controller {
     try {
       let foods = await Food.find();
       return await res.json(foods);
+    } catch (error) {
+      next(error);
+    }
+  }
+  static async allFoodsByRestaurant(req, res, next) {
+    const restaurentId = req.params.restaurentId;
+
+    try {
+      return await Restaurant.findById(restaurentId)
+        .populate("foodID.items")
+        .exec(function (err, food) {
+          if (err) return next(err);
+          return res.json({
+            allFood: [...food.foodID.items],
+            totalCount: food.foodID.items.length,
+          });
+        });
     } catch (error) {
       next(error);
     }
