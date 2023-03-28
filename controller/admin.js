@@ -1,5 +1,3 @@
-const mongodb = require("mongodb");
-const binary = mongodb.Binary;
 const Food = require("../models/food-model");
 const User = require("../models/user-model");
 const Restaurant = require("../models/restaurant-model");
